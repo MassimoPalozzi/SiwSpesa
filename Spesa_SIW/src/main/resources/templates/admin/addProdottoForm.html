@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="template.html :: headerfiles('prodottoAddForm')">
+</head>
+<body>
+<header th:replace="template.html :: intestazione"></header>
+<div class="container mt-5">
+    <h1 class="text-center">Inserisci nuovo prodotto</h1>
+    <div class="card-body">
+        <form method="post" th:action="@{/admin/prodotto}" th:object="${prodotto}" novalidate>
+            <div class="form-group">
+                <label for="nome">Nome:</label>
+                <input type="text" class="form-control" id="nome" th:field="*{nome}" required/>
+                <p class="text-danger" th:if="${#fields.hasErrors('nome')}" th:errors="*{nome}"></p>
+            </div>
+            <div class="form-group">
+                <label for="descrizione">Descrizione:</label>
+                <input type="text" class="form-control" id="descrizione" th:field="*{descrizione}" required/>
+                <p class="text-danger" th:if="${#fields.hasErrors('descrizione')}" th:errors="*{descrizione}"></p>
+            </div>
+            <div class="form-group">
+                <label for="origine">Prezzo:</label>
+                <input type="number" step="0.01" class="form-control" id="prezzo" th:field="*{prezzo}" required/>
+                <p class="text-danger" th:if="${#fields.hasErrors('prezzo')}" th:errors="*{prezzo}"></p>
+            </div>
+            <div class="d-flex justify-content-center align-items-center">
+                <button type="submit" class="btn btn-primary">Aggiungi</button>
+            </div>
+        </form>
+        <br>
+
+    </div>
+    <footer th:replace="template.html :: footer"></footer>
+</body>
+</html>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="template.html :: headerfiles('buffetAddForm')">
+</head>
+<body>
+<header th:replace="template.html :: intestazione"></header>
+
+<div class="container my-5">
+    <h2>Aggiungi una lista</h2>
+    <form th:action="@{lista}" method="POST" th:object="${lista}">
+        <div class="form-group">
+            <label for="nome">Nome Lista</label>
+            <input type="text" class="form-control" id="nome" name="nome">
+        </div>
+        <label for="prodotti">Prodotti:</label>
+        <div class="card overflow-auto" ;>
+            <div class="card-body">
+                <table class="table table-bordered">
+                    <thead>
+                    <tr>
+                        <th>Seleziona</th>
+                        <th>Nome</th>
+                        <th>Descrizione</th>
+                        <th>Prezzo</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr th:each="prodotto : ${prodotti}">
+                        <td>
+                            <input type="checkbox" name="prodottiIds" th:value="${prodotto.id}"/>
+                        </td>
+                        <td th:text="${prodotto.nome}"></td>
+                        <td th:text="${prodotto.descrizione}"></td>
+                        <td th:text="${prodotto.prezzo}"></td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <input type="hidden" th:value="${userId}" th:name="userId"/>
+        <button type="submit" class="btn btn-primary mt-3">Aggiungi Lista</button>
+    </form>
+</div>
+
+<footer th:replace="template.html :: footer"></footer>
+</body>
+</html>
