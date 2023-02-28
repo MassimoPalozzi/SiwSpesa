@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="template.html :: headerfiles('home')">
+</head>
+<body>
+<header th:replace="template.html :: intestazione"></header>
+<div class="container">
+    <div class="row" style="max-height: 50vh;">
+        <div class="col-md-6">
+            <h1>Benvenuto admin</h1>
+            <p>Spesa è un sito per la comoda gestione di una lista della spesa da poter avere sempre con te. Elimina o modifica una lista di un utente oppure aggiungi, rimuovi o modifica un prodotto.</p>
+        </div>
+        <div class="col-md-6">
+            <img src="/images/cart.png" class="img-fluid float-left" alt="presentation image" style="background-color: transparent; transform: scale(0.5); position: relative; top: -50px;">
+        </div>
+    </div>
+    <div class="row text-center">
+        <div class="card-deck col-md-12 d-flex justify-content-center">
+            <div class="card">
+                <div class="card-body">
+                    <h3 class="card-title">Gestisci liste</h3>
+                    <div>
+                        <a th:href="@{/admin/selectUtenteRemove}" class="btn btn-secondary btn-block text-center">Elimina lista</a>
+                    </div>
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-body">
+                    <h3 class="card-title">Gestisci prodotti</h3>
+                    <a th:href="@{/admin/addProdotto}" class="btn btn-primary btn-block text-center">Aggiungi prodotto</a>
+                    <a th:href="@{/admin/selectProdotto}" class="btn btn-primary btn-block text-center">Modifica prodotto</a>
+                    <a th:href="@{/admin/removeProdotto}" class="btn btn-primary btn-block text-center">Elimina prodotto</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<footer th:replace="template.html :: footer"></footer>
+</body>
+</html>

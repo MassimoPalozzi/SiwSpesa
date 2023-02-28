@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="template.html :: headerfiles('homeVip')">
+</head>
+<body>
+<header th:replace="template.html :: intestazione"></header>
+<div class="container">
+  <div class="row" style="max-height: 50vh;">
+    <div class="col-md-6">
+      <h1>Bentornato in Spesa</h1>
+      <p>Spesa è un sito per la comoda gestione di una lista della spesa da poter avere sempre con te. Aggiungi elimina o modifica una lista, oppure visualizza le tue liste. Solo per utenti importanti come te è riservata l'opzione per visualizzare il costo totale di una lista</p>
+    </div>
+    <div class="col-md-6">
+      <img src="/images/cart.png" class="img-fluid float-left" alt="presentation image" style="background-color: transparent; transform: scale(0.5); position: relative; top: -50px;">
+    </div>
+  </div>
+  <div class="row text-center">
+    <div class="card-deck col-md-12 d-flex justify-content-center">
+      <div class="card">
+        <div class="card-body">
+          <h3 class="card-title">Gestisci le tue liste</h3>
+          <div>
+            <a th:href="@{/addLista}" class="btn btn-primary btn-block text-center">Aggiungi lista</a>
+            <a th:href="@{/selectListaEditUser}" class="btn btn-secondary btn-block text-center">Modifica lista</a>
+            <a th:href="@{/deleteLista}" class="btn btn-secondary btn-block text-center">Elimina lista</a>
+          </div>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-body">
+          <h3 class="card-title">Visualizza le tue liste</h3>
+          <a th:href="@{/viewListaSelect}" class="btn btn-primary btn-block text-center">Visualizza liste</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<footer th:replace="template.html :: footer"></footer>
+</body>
+</html>
